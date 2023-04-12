@@ -9,3 +9,5 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(os.path.join(BASE_DIR, 'pybo.db'
 # pybo.db myproject에 만들어져
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 # 이벤트 처리에 관련된 옵션
+
+SECRET_KEY = "dev"
