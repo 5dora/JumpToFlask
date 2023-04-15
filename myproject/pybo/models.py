@@ -19,6 +19,7 @@ class Question(db.Model):
     user = db.relationship('User', backref=db.backref('question_set'))
     modify_date = db.Column(db.DateTime(), nullable=True)
     voter = db.relationship('User', secondary=question_voter, backref=db.backref('question_voter_set'))
+    views = db.Column(db.Integer, nullable=True, server_default='0')
 
 
 answer_voter = db.Table(
@@ -40,6 +41,7 @@ class Answer(db.Model):
     user = db.relationship('User', backref=db.backref('answer_set'))
     modify_date = db.Column(db.DateTime(), nullable=True)
     voter = db.relationship('User', secondary=answer_voter, backref=db.backref('answer_voter_set'))
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)

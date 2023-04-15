@@ -47,6 +47,8 @@ def _list():
 def detail(question_id):
     form = AnswerForm()
     question = Question.query.get_or_404(question_id)
+    question.views += 1
+    db.session.commit()
     return render_template('question/question_detail.html', question=question, form=form)
 
 
